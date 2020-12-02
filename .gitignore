@@ -110,7 +110,10 @@ pretrained/
 trained_models/
 
 # editor, os cache directory
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .idea/
 __MACOSX/
 
+# ngrok
+ngrok*
