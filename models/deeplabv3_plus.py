@@ -415,8 +415,7 @@ class DeepLab(BaseModel):
         backbone="xception",
         pretrained=True,
         output_stride=16,
-        freeze_bn=False,
-        **_,
+        **kwargs,
     ):
 
         super(DeepLab, self).__init__()
@@ -435,6 +434,9 @@ class DeepLab(BaseModel):
         self.ASSP = ASSP(in_channels=2048, output_stride=output_stride)
         self.decoder = Decoder(low_level_channels, num_classes)
 
+        # unpack kwargs
+        freeze_bn = kwargs["freeze_bn"]
+        freeze_backbone = kwargs["freeze_backbone"]
         if freeze_bn:
             self.freeze_bn()
         if freeze_backbone:
