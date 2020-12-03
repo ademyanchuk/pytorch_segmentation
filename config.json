@@ -1,12 +1,12 @@
 {
-    "name": "DeepLabv3+",
+    "name": "U-Net",
     "n_gpu": 1,
     "use_synch_bn": false,
 
     "arch": {
-        "type": "DeepLab",
+        "type": "UNet",
         "args": {
-            "backbone": "resnet",
+            "backbone": "",
             "freeze_bn": false,
             "freeze_backbone": false
         }
@@ -46,9 +46,9 @@
         "type": "SGD",
         "differential_lr": true,
         "args":{
-            "lr": 0.007,
+            "lr": 0.1,
             "weight_decay": 5e-4,
-            "momentum": 0.9
+            "momentum": 0.99
         }
     },
 
@@ -60,7 +60,7 @@
     },
 
     "trainer": {
-        "epochs": 50,
+        "epochs": 80,
         "save_dir": "saved/",
         "save_period": 50,
   
